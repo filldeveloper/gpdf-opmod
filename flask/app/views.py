@@ -27,19 +27,16 @@ def gerar_pdf():
     path_script = '/root/scripts/relatorios/wan/relatorio_pdf.py'
     comando = f'{path_env} {path_script} {servico} {cliente} {data_ini} {data_fim}'
 
+    # print(comando)
     # Chamar função que executa o script remotamente
-    ssh_command(comando)
+    # Descomentar depois para gerar o PDF
+    # ssh_command(comando)
 
-    # Teste
-    lista_servicos = servicos()
-    lista_meses = meses()
-    lista_anos = anos()
-    lista_clientes = clientes()
-
+    # Test
     mensagem = f'PDF {servico}/{cliente} gerado com sucesso!'
-    return render_template('index.html',
-                            texto_aviso=mensagem,
-                            servicos=lista_servicos,
-                            meses=lista_meses,
-                            anos=lista_anos,
-                            clientes=lista_clientes)
+    return render_template('gerado.html',
+                            texto_aviso=mensagem)
+
+@app.route('/logout')
+def logout():
+    return render_template()

@@ -1,9 +1,10 @@
 from paramiko import SSHClient, AutoAddPolicy
+from app.credentials import *
 
 def ssh_command(comando):
-    server = '10.31.19.111'
-    username = 'root'
-    password = 'serprospo'
+    server = SERVER
+    username = USERNAME
+    password = PASSWORD
 
     ssh = SSHClient()
 
